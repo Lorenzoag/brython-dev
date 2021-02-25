@@ -6,6 +6,8 @@ authors = ["lorenzo Garcia <lorenzogarciacalzadilla@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+brython = "^3.9.1"
+flask = "^1.1.2"
 
 [tool.poetry.dev-dependencies]
 fossil-cli = "^3.0.0"
