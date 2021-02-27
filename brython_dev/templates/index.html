@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  {% for script in scripts %}
+    <script src="{{ script }}"></script>
+  {% endfor %}
+  {% if extensions.get('brython', False)%}
+    <script src="js/brython.js"></script>
+  {% endif %}
+
+  {% for stylesheet in stylesheets %}
+    <link rel="stylesheet" media="screen" href="{{ stylesheet }}" />
+  {% endfor %}
+</head>
+<body onload="brython({{ options }});">
+
+</body>
+</html>

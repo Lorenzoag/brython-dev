@@ -1,0 +1,9 @@
+stylesheets:
+    - css/bulma.min.css
+    - css/bulma.css
+extensions:
+    brython: true
+    brython_stdlib: true
+scripts:
+    - css/bulma.css
+    
