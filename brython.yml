@@ -1,0 +1,3 @@
+name: Brython-dev
+extensions:
+    brython_stdlib: true

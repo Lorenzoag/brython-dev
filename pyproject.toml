@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "brython-dev"
-version = "0.1.0"
+version = "0.2.1"
 description = "Brython developer tools"
 authors = ["lorenzo Garcia <lorenzogarciacalzadilla@gmail.com>"]
 
@@ -8,6 +8,7 @@ authors = ["lorenzo Garcia <lorenzogarciacalzadilla@gmail.com>"]
 python = "^3.9"
 brython = "^3.9.1"
 flask = "^1.1.2"
+pyyaml = "^5.4.1"
 
 [tool.poetry.dev-dependencies]
 fossil-cli = "^3.0.0"
