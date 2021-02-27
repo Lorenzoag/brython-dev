@@ -1,9 +1,14 @@
+name: brython_dev
 stylesheets:
-    - css/bulma.min.css
     - css/bulma.css
+    - css/bulma.min.css
 extensions:
-    brython: true
+    # brython: true
     brython_stdlib: true
 scripts:
-    - css/bulma.css
+    - js/axios.js
+    - js/axios.min.js
+brython_options:
+    debug: 1
+    # indexedDB: true
     
