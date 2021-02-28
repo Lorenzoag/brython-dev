@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ name }}</title>
+    {% for stylesheet in stylesheets %}
+    <link rel="stylesheet" href="{{ stylesheet }}">{% endfor %}
+    
+    {% if use_brython %}<script type="text/javascript" src="{{ url_for('brythonjs') }}"></script>{% endif %}
+    {% if use_brython_stdlib %}<script type="text/javascript" src="{{ url_for('brythonstdlibjs') }}"></script>{% endif %}
+    {% for script in scripts %}
+    <script type="text/javascript" src="{{ script }}"></script>{% endfor %}
+    
+    <script id="__main__" type="text/python3" src="{{ app }}"></script>
+  
+</head>
+<body onload="brython({{ brython_options }})">
+{{ template|safe }}
+</body>
+</html>
