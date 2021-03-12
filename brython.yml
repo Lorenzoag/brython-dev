@@ -1,4 +1,4 @@
-name: Tester
+name: Tests
 stylesheets:
     - test.css
 extensions:
