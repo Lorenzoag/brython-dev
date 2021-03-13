@@ -14,9 +14,9 @@ pip install brython-dev
 
 For runserver
 
-'''bash
+```bash
 py -m brython_dev run
-'''
+```
 
 ## Configuration
 
