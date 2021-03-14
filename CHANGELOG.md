@@ -9,15 +9,23 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ---
 
 ### New
+
+### Changes
+
+### Fixes
+
+### Breaks
+
+
+## 0.4.0 - (2021-03-14)
+---
+
+### New
 * Creando CHANGELOG.md
 * Creando README.md
 
 ### Changes
 * Reorganizando el codigo
-
-### Fixes
-
-### Breaks
 
 
 ## 0.3.0 - (2021-02-27)
