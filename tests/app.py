@@ -1,5 +1,6 @@
 from browser import document
-from interpreter import Interpreter
+# from interpreter import Interpreter
 
-Interpreter()
+# Interpreter()
+print(dir(document))
 

@@ -1,4 +1,5 @@
 name: Tests
+# console: true
 stylesheets:
     - test.css
 extensions:

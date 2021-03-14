@@ -15,9 +15,18 @@
 {% for script in config.get("SCRIPTS") or [] %}
     <script type="text/javascript" src="{{ script }}"></script>
 {% endfor %}
-    <script id="__main__" type="text/python3" src="{{ config.get('APP', 'app.py') }}"></script>
 </head>
 <body onload="brython({{ config.get('BRYTHON_OPTIONS', {'debug': 1})|pretty_dict }})">
-{{ config.get("TEMPLATE", "app.html")|read_text|safe }}
+    {{ config.get("TEMPLATE", "app.html")|read_text|safe }}
+
+    {% if config.get("CONSOLE", True) %}
+    <script id="console.py" type="text/python3">
+    from interpreter import Interpreter
+    import sys
+    sys.stdout = sys.stderr = Interpreter()
+    print("\n")
+    </script>
+    {% endif %}
+    <script id="app.py" type="text/python3" src="{{ config.get('APP', 'app.py') }}"></script>
 </body>
 </html>

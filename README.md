@@ -27,8 +27,8 @@ The configuration is in the filename `brython.yml`
 * **template**: String, Default: `app.html`. The html main template
 * **stylesheets**: List. A list whith extras stylesheets
 * **extensions**: Dict. A dict whith enable brython extensions
-  * **brython**: Boolean, Default: `True`. Enable the brython library
-  * **brython_stdlib**: Boolean, Default: `False`. Enable the brython stdlib library
+  * **brython**: Boolean, Default: `true`. Enable the brython library
+  * **brython_stdlib**: Boolean, Default: `false`. Enable the brython stdlib library
 * **scripts**: List. A list whith extras scripts
 * **brython_options**: Dict. A dict whith brython options
 
