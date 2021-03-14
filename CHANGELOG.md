@@ -17,6 +17,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.4.2 - (2021-03-14)
+---
+
+### New
+* Adicionando licencia
+
+### Changes
+* Actualizando pyproyect
+
+
 ## 0.4.0 - (2021-03-14)
 ---
 
