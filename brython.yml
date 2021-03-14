@@ -1,3 +1,6 @@
-name: Brython-dev
+name: Tests
+# console: true
+stylesheets:
+    - test.css
 extensions:
     brython_stdlib: true

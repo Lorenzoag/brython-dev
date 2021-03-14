@@ -1,19 +1,32 @@
 <!doctype html>
 <html>
 <head>
-    <title>{{ name }}</title>
-    {% for stylesheet in stylesheets %}
-    <link rel="stylesheet" href="{{ stylesheet }}">{% endfor %}
+    <title>{{ config.get("NAME") }}</title>
+{% for stylesheet in config.get("STYLESHEETS") or [] %}
+    <link rel="stylesheet" href="{{ stylesheet }}">
+{% endfor %}
     
-    {% if use_brython %}<script type="text/javascript" src="{{ url_for('brythonjs') }}"></script>{% endif %}
-    {% if use_brython_stdlib %}<script type="text/javascript" src="{{ url_for('brythonstdlibjs') }}"></script>{% endif %}
-    {% for script in scripts %}
-    <script type="text/javascript" src="{{ script }}"></script>{% endfor %}
-    
-    <script id="__main__" type="text/python3" src="{{ app }}"></script>
-  
+{% if config.get("EXTENSIONS", {}).get("brython", True) %}
+    <script type="text/javascript" src="{{ url_for('brythonjs') }}"></script>
+{% endif %}
+{% if config.get("EXTENSIONS", {}).get("brython_stdlib", False) %}
+    <script type="text/javascript" src="{{ url_for('brythonstdlibjs') }}"></script>
+{% endif %}
+{% for script in config.get("SCRIPTS") or [] %}
+    <script type="text/javascript" src="{{ script }}"></script>
+{% endfor %}
 </head>
-<body onload="brython({{ brython_options }})">
-{{ template|safe }}
+<body onload="brython({{ config.get('BRYTHON_OPTIONS', {'debug': 1})|pretty_dict }})">
+    {{ config.get("TEMPLATE", "app.html")|read_text|safe }}
+
+    {% if config.get("CONSOLE", True) %}
+    <script id="console.py" type="text/python3">
+    from interpreter import Interpreter
+    import sys
+    sys.stdout = sys.stderr = Interpreter()
+    print("\n")
+    </script>
+    {% endif %}
+    <script id="app.py" type="text/python3" src="{{ config.get('APP', 'app.py') }}"></script>
 </body>
 </html>

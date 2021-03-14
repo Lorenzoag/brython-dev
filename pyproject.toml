@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "brython-dev"
-version = "0.3.1"
+version = "0.4.1"
 description = "Brython developer tools"
 authors = ["Lorenzo Garcia <lorenzogarciacalzadilla@gmail.com>"]
+
+[tool.poetry.scripts]
+brython-dev = "brython_dev.__main__:cli"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -12,6 +15,10 @@ pyyaml = "^5.4.1"
 
 [tool.poetry.dev-dependencies]
 fossil-cli = "^3.0.0"
+pytest-cov = "^2.10.1"
+tox-poetry = "^0.1.0"
+readme-md-docstrings = "^0.0.8"
+changelog-cli = "^0.6.2"
 
 [[tool.poetry.source]]
 name = "private"
