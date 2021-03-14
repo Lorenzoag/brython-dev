@@ -1,8 +1,28 @@
 [tool.poetry]
 name = "brython-dev"
-version = "0.4.1"
+version = "0.4.2"
 description = "Brython developer tools"
-authors = ["Lorenzo Garcia <lorenzogarciacalzadilla@gmail.com>"]
+authors = ["Lorenzo Garcia Calzadilla <lorenzogarciacalzadilla@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Bug Tracking",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities"
+]
+keywords = [
+    "brython",
+    "Development",
+    "Build Tools",
+    "Debuggers",
+    "Testing"
+]
 
 [tool.poetry.scripts]
 brython-dev = "brython_dev.__main__:cli"
