@@ -11,4 +11,4 @@ def cli():
     """Management script for brython developers."""
 
 
-cli(prog_name="Bython-dev")
+cli(prog_name="bython-dev")
