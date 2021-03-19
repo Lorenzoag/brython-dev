@@ -10,5 +10,9 @@ from brython_dev import __version__, create_app
 def cli():
     """Management script for brython developers."""
 
+@cli.command
+def init():
+    """Init"""
+    pass
 
 cli(prog_name="bython-dev")
