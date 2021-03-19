@@ -17,6 +17,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.5.0 - (2021-03-19)
+---
+
+### New
+* Agregando tests
+
+### Changes
+* Quitando libreria inesesaria
+
+
 ## 0.4.2 - (2021-03-14)
 ---
 

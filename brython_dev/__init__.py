@@ -7,7 +7,7 @@ from flask import Flask, escape, render_template, send_from_directory
 
 try:
     __version__ = pkg_resources.get_distribution("brython-dev").version
-except pkg_resources.DistributionNotFound:
+except pkg_resources.DistributionNotFound:  # pragma: no cover
     __version__ = "unknown"
 
 
@@ -29,7 +29,7 @@ def create_app(config: dict = {}) -> Flask:
         static_folder=str(proyect.resolve()),
         static_url_path=config_yaml.get("STATIC_URL", "/"),
     )
-    
+
     app.config.from_mapping(config_yaml)
     app.config.from_mapping(config)
 
