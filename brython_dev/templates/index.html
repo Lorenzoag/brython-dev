@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>{{ config.get("NAME") }}</title>
+    <title>{{ config.get("NAME") or "Unnamed" }}</title>
 {% for stylesheet in config.get("STYLESHEETS") or [] %}
     <link rel="stylesheet" href="{{ stylesheet }}">
 {% endfor %}
