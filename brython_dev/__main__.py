@@ -15,11 +15,18 @@ def cli():
 
 @cli.command()
 @click.option("--name", prompt=True, help="Proyect name")
-def init(name):  # , app, template):
+@click.option("--app", prompt=True, help="Proyect app", default="app.py")
+@click.option("--template", prompt=True, help="Proyect template", default="app.html")
+def init(name, app, template):
     """Creates a basic brython.yml file in the current directory."""
 
+    if Path(name.lower().replace("-", "_")).is_dir():
+        app = f"{name.lower().replace('-', '_')}\{app}"
+        template = f"{name.lower().replace('-', '_')}\{template}"
+    
+    
     with Path("brython.yml") as file:
-        file.write_text(f"name: {name}")
+        file.write_text(f"name: {name}\napp: {app}\ntemplate: {template}")
 
 
 if __name__ == "__main__":  # pragma: no cover
