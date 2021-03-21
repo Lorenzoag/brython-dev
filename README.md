@@ -25,6 +25,7 @@ The configuration is in the filename `brython.yml`
 * **name**: String. The name of the proyect
 * **app**: String, Default: `app.py`. The python main filename
 * **template**: String, Default: `app.html`. The html main template
+* **console**: Boolean, Default: `true`. Enable he console in the navegator
 * **stylesheets**: List. A list whith extras stylesheets
 * **extensions**: Dict. A dict whith enable brython extensions
   * **brython**: Boolean, Default: `true`. Enable the brython library

@@ -20,19 +20,9 @@ def client(app):
     yield app.test_client()
 
 
-# @pytest.fixture
-# def get(client):
-# with client:
-# yield client.get
-
-# @pytest.fixture
-# def post(client):
-# with client:
-# yield client.post
-
-# @pytest.fixture
-# def runner(app):
-# return app.test_cli_runner()
+@pytest.fixture
+def runner(app):
+    yield app.test_cli_runner()
 
 
 # @pytest.fixture

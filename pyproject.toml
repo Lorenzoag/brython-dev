@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "brython-dev"
-version = "0.5.0"
+version = "0.6.0"
 description = "Brython developer tools"
 authors = ["Lorenzo Garcia Calzadilla <lorenzogarciacalzadilla@gmail.com>"]
 license = "MIT"
@@ -29,7 +29,7 @@ brython-dev = "brython_dev.__main__:cli"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-brython = "^3.9.1"
+brython = ">=3.8.9"
 flask = "^1.1.2"
 pyyaml = "^5.4.1"
 
@@ -38,6 +38,7 @@ fossil-cli = "^3.0.0"
 pytest-cov = "^2.10.1"
 tox-poetry = "^0.1.0"
 changelog-cli = "^0.6.2"
+vuepy = "^0.3.0"
 
 [[tool.poetry.source]]
 name = "private"

@@ -9,8 +9,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ---
 
 ### New
+* Agregando comando init
 
 ### Changes
+* Arreglando las pruebas
+* Arreglando Readme.md
 
 ### Fixes
 
