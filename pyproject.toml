@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "brython-dev"
-version = "0.6.0"
+version = "0.7.0"
 description = "Brython developer tools"
 authors = ["Lorenzo Garcia Calzadilla <lorenzogarciacalzadilla@gmail.com>"]
 license = "MIT"

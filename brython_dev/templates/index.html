@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>{{ config.get("NAME") or "Unnamed" }}</title>
+    <meta charset="utf-8">
 {% for stylesheet in config.get("STYLESHEETS") or [] %}
     <link rel="stylesheet" href="{{ stylesheet }}">
 {% endfor %}
