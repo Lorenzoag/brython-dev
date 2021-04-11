@@ -13,8 +13,6 @@ except pkg_resources.DistributionNotFound:  # pragma: no cover
 
 def create_app(config: dict = {}) -> Flask:
     config_file = Path(config.get("CONFIG_FILE", "brython.yml")).resolve()
-    # if not config_file.exists():
-    # raise FileExistsError(f"{config_file} not exist")
 
     config_yaml = (
         {k.upper(): v for k, v in yaml.safe_load(config_file.read_text()).items()}
@@ -23,7 +21,7 @@ def create_app(config: dict = {}) -> Flask:
     )
 
     proyect = Path.cwd()
-    if Path(config_yaml["NAME"].lower().replace("-", "_")).is_dir():
+    if Path(config_yaml["NAME"].lower().replace("-", "_")).is_dir():  # pragma: no cover
         proyect = Path(config_yaml["NAME"].lower().replace("-", "_"))
 
     app = Flask(

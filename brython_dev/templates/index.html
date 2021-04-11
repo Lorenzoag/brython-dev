@@ -20,7 +20,7 @@
 <body onload="brython({{ config.get('BRYTHON_OPTIONS', {'debug': 1})|pretty_dict }})">
     {{ config.get("TEMPLATE", "app.html")|read_text|safe }}
 
-    {% if config.get("CONSOLE", True) %}
+    {% if config.get("CONSOLE", True) and config.get("EXTENSIONS", {}).get("brython_stdlib", False) %}
     <script id="console.py" type="text/python3">
     from interpreter import Interpreter
     import sys
