@@ -27,6 +27,12 @@ install.set_defaults(func=install)
 
 """
 
+PYTHON_TEMPLATE = """from browser import document, html
+
+document['app'] <= html.SPAN('Hello Brython!')
+"""
+HTML_TEMPLATE = """<div id="app"></div>"""
+
 
 @click.group(cls=FlaskGroup, create_app=create_app, add_version_option=False)
 @click.version_option(version=__version__)
@@ -64,7 +70,6 @@ def build():
         file.write_text(MAIN_TEMPLATE)
         
     print(render_template("index.html"))
-    
 
 
 if __name__ == "__main__":  # pragma: no cover
