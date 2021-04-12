@@ -13,7 +13,6 @@ def test_version():
     (
         ("/brython.js", 200),
         ("/brython_stdlib.js", 200),
-        ("/Lib/site-packages/easy_install.py", 200),
         ("/Lib/site-packages/brython.py", 404),
         ("/Lib/site-packages/brython/__init__.py", 200),
     ),
