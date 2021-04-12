@@ -20,5 +20,6 @@ def test_version():
 def test_routes(client, path, status):
     assert client.get(path).status_code == status
 
+
 def test_not_config_file():
     create_app({"TESTING": True, "SECRET_KEY": "dev", "CONFIG_FILE": "incorrect.yml"})

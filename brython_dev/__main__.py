@@ -68,7 +68,7 @@ def build():
 
     with Path(proyect / "__main__.py") as file:
         file.write_text(MAIN_TEMPLATE)
-        
+
     print(render_template("index.html"))
 
 
