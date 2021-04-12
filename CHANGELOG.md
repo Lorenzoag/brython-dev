@@ -9,15 +9,37 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ---
 
 ### New
+
+### Changes
+
+### Fixes
+
+### Breaks
+
+
+## 0.6.2 - (2021-04-11)
+---
+
+### Fixes
+* Arreglando las pruebas del comando init
+
+
+## 0.6.1 - (2021-04-11)
+---
+
+### Fixes
+* Arreglando el comando init
+
+
+## 0.6.0 - (2021-04-11)
+---
+
+### New
 * Agregando comando init
 
 ### Changes
 * Arreglando las pruebas
 * Arreglando Readme.md
-
-### Fixes
-
-### Breaks
 
 
 ## 0.5.0 - (2021-03-19)
