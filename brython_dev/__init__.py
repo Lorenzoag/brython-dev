@@ -3,13 +3,45 @@ from pathlib import Path
 
 import pkg_resources
 import yaml
-from flask import Flask, escape, render_template, send_from_directory
+from flask import Flask, escape, render_template_string, send_from_directory
 
 try:
     __version__ = pkg_resources.get_distribution("brython-dev").version
 except pkg_resources.DistributionNotFound:  # pragma: no cover
     __version__ = "unknown"
 
+    
+INDEX_TEMPLATE = """
+<!doctype html>
+<html>
+<head>
+    <title>{{ config.get("NAME") or "Unnamed" }}</title>
+    <meta charset="utf-8">
+    {% for stylesheet in config.get("STYLESHEETS") or [] %}
+    <link rel="stylesheet" href="{{ stylesheet }}">{% endfor %}
+    {% if config.get("EXTENSIONS", {}).get("brython", True) %}
+    <script type="text/javascript" src="/brython.js"></script>{% endif %}{% if config.get("EXTENSIONS", {}).get("brython_stdlib", False) %}
+    <script type="text/javascript" src="/brython_stdlib.js"></script>{% endif %}{% for script in config.get("SCRIPTS") or [] %}
+    <script type="text/javascript" src="{{ script }}"></script>{% endfor %}
+</head>
+<body onload="brython({{ config.get('BRYTHON_OPTIONS', {'debug': 1})|pretty_dict }})">
+    <!--{{ config.get("TEMPLATE", "app.html")|read_text|safe }}-->
+    <script id="load.py" type="text/python3">
+    from browser import document, html
+    document.select("body")[0] <= html.DIV(open("{{ config.get("TEMPLATE", "app.html") }}").read())
+    </script>
+    {% if config.get("CONSOLE", True) and config.get("EXTENSIONS", {}).get("brython_stdlib", False) %}
+    <script id="console.py" type="text/python3">
+    from interpreter import Interpreter
+    import sys
+    sys.stdout = sys.stderr = Interpreter()
+    print("\\n")
+    </script>
+    {% endif %}
+    <script id="app.py" type="text/python3" src="{{ config.get('APP', 'app.py') }}"></script>
+</body>
+</html>
+"""
 
 def create_app(config: dict = {}) -> Flask:
     config_file = Path(config.get("CONFIG_FILE", "brython.yml")).resolve()
@@ -32,7 +64,7 @@ def create_app(config: dict = {}) -> Flask:
 
     app.config.from_mapping(config_yaml)
     app.config.from_mapping(config)
-
+    
     @app.template_filter()
     def pretty_dict(_dict):
         return f"{{{', '.join(f'{k}: {v}' for k, v in _dict.items())}}}"
@@ -47,7 +79,7 @@ def create_app(config: dict = {}) -> Flask:
 
     @app.route("/")
     def index():
-        return render_template("index.html")
+        return render_template_string(INDEX_TEMPLATE)
 
     @app.route("/brython.js")
     def brythonjs():

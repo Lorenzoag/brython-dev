@@ -2,16 +2,12 @@ from pathlib import Path
 
 import click
 import yaml
-from flask import Flask, render_template
+from flask import Flask, render_template_string, current_app
 from flask.cli import FlaskGroup
+from flask.cli import with_appcontext
+from flask.globals import _app_ctx_stack
 
-from brython_dev import __version__, create_app
-
-PYTHON_TEMPLATE = """from browser import document, html
-
-document['app'] <= html.SPAN('Hello Brython!')
-"""
-HTML_TEMPLATE = """<div id="app"></div>"""
+from brython_dev import __version__, create_app, INDEX_TEMPLATE
 
 MAIN_TEMPLATE = """
 import argparse
@@ -62,14 +58,18 @@ def init(name, app, template):
 def build():
     """Build the proyect."""
 
-    safe_load = yaml.safe_load(Path("brython.yml").read_text())
-    safe_name = Path(safe_load["name"].lower().replace("-", "_"))
-    proyect = safe_name if safe_name.is_dir() else Path.cwd()
+    safe_name = Path(current_app.config["NAME"].lower().replace("-", "_"))
+    root = safe_name if safe_name.is_dir() else Path.cwd()
 
-    with Path(proyect / "__main__.py") as file:
+
+    with Path(root / "__main__.py") as file:
         file.write_text(MAIN_TEMPLATE)
+        
+    with Path(root / "index.html") as file:
+        file.write_text(render_template_string(INDEX_TEMPLATE))
+        
+    # with Path(root / "index.html") as file:
 
-    print(render_template("index.html"))
 
 
 if __name__ == "__main__":  # pragma: no cover

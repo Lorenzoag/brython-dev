@@ -35,5 +35,5 @@ def test_build(runner):
 
     runner.invoke(cli, ["build"])
 
-    remove_file_or_dir("brython.yml")
-    remove_file_or_dir("test_dir")
+    # remove_file_or_dir("brython.yml")
+    # remove_file_or_dir("test_dir")

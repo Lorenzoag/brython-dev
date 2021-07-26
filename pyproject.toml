@@ -29,15 +29,15 @@ brython-dev = "brython_dev.__main__:cli"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-brython = "*"
-flask = "^1.1.2"
+brython = "^3.9.5"
+flask = "^2.0.1"
 pyyaml = "^5.4.1"
 
 [tool.poetry.dev-dependencies]
-fossil-cli = "^3.0.0"
+fossil-cli = "^3.2.0"
 pytest-cov = "^2.10.1"
-tox-poetry = "^0.1.0"
 changelog-cli = "^0.6.2"
+tox = "^3.24.0"
 
 [[tool.poetry.source]]
 name = "private"
