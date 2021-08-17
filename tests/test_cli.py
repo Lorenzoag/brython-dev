@@ -27,3 +27,13 @@ def test_init(runner):
 
     remove_file_or_dir("brython.yml")
     remove_file_or_dir("test_dir")
+
+
+def test_build(runner):
+    Path("test_dir").mkdir()
+    runner.invoke(cli, ["init", "--name", "test-dir"])
+
+    runner.invoke(cli, ["build"])
+
+    # remove_file_or_dir("brython.yml")
+    # remove_file_or_dir("test_dir")
