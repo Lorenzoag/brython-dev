@@ -68,8 +68,6 @@ def build():
     with Path(root / "index.html") as file:
         file.write_text(render_template_string(INDEX_TEMPLATE))
         
-    # with Path(root / "index.html") as file:
-
 
 
 if __name__ == "__main__":  # pragma: no cover
