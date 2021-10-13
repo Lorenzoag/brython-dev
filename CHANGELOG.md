@@ -17,6 +17,17 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.7.3 - (2021-10-13)
+---
+
+### Fixes
+* Arreglando las pruebas de los comandos init y build
+* Arreglando el problema de la plantilla
+
+### Breaks
+* Arreglando el problema de la plantilla
+
+
 ## 0.7.1 - (2021-08-17)
 ---
 
