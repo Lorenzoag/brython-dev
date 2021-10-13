@@ -21,7 +21,8 @@ def test_factory(runner):
 
 
 def test_init(runner):
-    Path("test_dir").mkdir()
+    if not Path("test_dir").exists():
+        Path("test_dir").mkdir()
 
     runner.invoke(cli, ["init", "--name", "test-dir"])
 
@@ -30,7 +31,9 @@ def test_init(runner):
 
 
 def test_build(runner):
-    Path("test_dir").mkdir()
+    if not Path("test_dir").exists():
+        Path("test_dir").mkdir()
+        
     runner.invoke(cli, ["init", "--name", "test-dir"])
 
     runner.invoke(cli, ["build"])

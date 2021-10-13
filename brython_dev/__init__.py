@@ -25,10 +25,9 @@ INDEX_TEMPLATE = """
     <script type="text/javascript" src="{{ script }}"></script>{% endfor %}
 </head>
 <body onload="brython({{ config.get('BRYTHON_OPTIONS', {'debug': 1})|pretty_dict }})">
-    <!--{{ config.get("TEMPLATE", "app.html")|read_text|safe }}-->
     <script id="load.py" type="text/python3">
     from browser import document, html
-    document.select("body")[0] <= html.DIV(open("{{ config.get("TEMPLATE", "app.html") }}").read())
+    document.select("body")[0] <= html.TEMPLATE(open("{{ config.get("TEMPLATE", "app.html") }}").read()).content
     </script>
     {% if config.get("CONSOLE", True) and config.get("EXTENSIONS", {}).get("brython_stdlib", False) %}
     <script id="console.py" type="text/python3">
@@ -68,14 +67,6 @@ def create_app(config: dict = {}) -> Flask:
     @app.template_filter()
     def pretty_dict(_dict):
         return f"{{{', '.join(f'{k}: {v}' for k, v in _dict.items())}}}"
-
-    @app.template_filter()
-    def read_text(filename):
-        return (
-            Path(proyect / filename).read_text()
-            if Path(proyect / filename).exists()
-            else ""
-        )
 
     @app.route("/")
     def index():

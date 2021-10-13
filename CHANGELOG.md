@@ -17,6 +17,24 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 0.7.1 - (2021-08-17)
+---
+
+### New
+* Agregando commando build
+* Agregando pruebas al comando build
+* Agregando plantilla al codigo
+
+### Changes
+* Actualizando librerias para desarrollo fossil-cli
+* Actualizando librerias brython y flask
+
+
+### Breaks
+* Eliminando librerias para desarrollo tox-poetry
+* Quitando la plantilla html
+
+
 ## 0.6.2 - (2021-04-11)
 ---
 
